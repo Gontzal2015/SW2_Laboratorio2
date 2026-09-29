@@ -21,7 +21,11 @@ function Ej1(){
 function EJ2y4(){
     let user= document.getElementById("user")
 
-    user.onfocus= ()=>{user.value=''}
+    user.onfocus= ()=>{
+        if(user.value=='tu@email'){
+        user.value=''
+        }
+    }
 
     user.onblur=()=>{
         if(user.value==''){
@@ -30,10 +34,17 @@ function EJ2y4(){
     }
     //Esto es ya el ejercicio 4
 
+    let pass=document.getElementById("pass")
     let submit=document.getElementById("form")
     submit.onsubmit= (event)=>{
         event.preventDefault();
         window.alert("Se ha pulsado Login")
+        if((user.value.includes("@ehu.es"))&&(pass.value.length>3)){
+            window.alert(`Binvenido ${user.value}`)
+        }
+        else{
+            window.alert("Error de inicio de sesion")
+        }
     }
 
 }
