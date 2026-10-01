@@ -1,10 +1,14 @@
 window.onload=inicializar
 
+let index=0
+let img
+let carrousel
+
 function inicializar(){
     Ej1()
     EJ2y4()
     EJ3()
-
+    EJ5()
 }
 
 
@@ -69,3 +73,21 @@ function EJ3(){
 
 }
 
+function EJ5(){
+    img= document.getElementById('image')
+    carrousel= ['images/fresas.jpg','images/limon.jpg', 'images/mandarinas.jpg','images/manzanas.jpg','images/melon.jpg','images/sesamo.jpg']
+    let cambios= setInterval(changeImg,3000)
+    img.addEventListener('click',()=>{
+        clearInterval(cambios)
+    })
+}
+
+function changeImg(){
+    img.style.backgroundImage=`url(../${carrousel[index]})`
+    if(index<5){
+        index++
+    }
+    else{
+        index=0
+    }
+}
